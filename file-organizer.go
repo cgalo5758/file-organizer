@@ -2,24 +2,23 @@ package main
 
 import (
 	"fmt"
-	"log"
-	"os"
 
-	"github.com/urfave/cli/v2"
+	"github.com/spf13/cobra"
 )
 
 func main() {
-	app := &cli.App{
-		Name:  "file-organizer",
-		Usage: "Organize files according to a given specification",
-		Action: func(c *cli.Context) error {
-			fmt.Println("Hello")
-			return nil
+
+	var cmdVersion = &cobra.Command{
+		Use:   "version",
+		Short: "Print the version number of file-organizer",
+		Long:  `Print the version number of file-organizer in semantic version format.`,
+		Args:  cobra.MinimumNArgs(1),
+		Run: func(cmd *cobra.Command, args []string) {
+			fmt.Println("file-organizer version 0.0.0")
 		},
 	}
 
-	err := app.Run(os.Args)
-	if err != nil {
-		log.Fatal(err)
-	}
+	var rootCmd = &cobra.Command{Use: "app"}
+	rootCmd.AddCommand(cmdVersion)
+	rootCmd.Execute()
 }
