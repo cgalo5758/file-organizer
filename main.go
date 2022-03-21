@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/cgalo5758/file-organizer/commands"
+	"github.com/cgalo5758/fior/commands"
 )
 
 func main() {

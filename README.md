@@ -1,2 +1,2 @@
-# file-organizer
-File organizer (WIP)
+# Fior
+Fior is a file organizer (WIP)

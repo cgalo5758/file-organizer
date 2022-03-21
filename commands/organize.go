@@ -16,5 +16,5 @@ var organizeCmd = &cobra.Command{
 }
 
 func init() {
-	filorgCmd.AddCommand(organizeCmd)
+	fiorCmd.AddCommand(organizeCmd)
 }
