@@ -12,6 +12,7 @@ var fiorCmd = &cobra.Command{
 	based on a given specification.`,
 }
 
+// Execute adds all child commands to the root command and sets flags appropriately.
 func Execute() {
 	cobra.CheckErr(fiorCmd.Execute())
 }
