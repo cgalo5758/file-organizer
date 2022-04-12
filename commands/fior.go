@@ -1,3 +1,4 @@
+// Cobra should have a package alias before this code becomes a zoo.
 package commands
 
 import (
@@ -13,6 +14,9 @@ var fiorCmd = &cobra.Command{
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
+//
+// Wait... Is this supposed to be capitalized?
+// I thought this gets capitalized once exported.
 func Execute() {
 	cobra.CheckErr(fiorCmd.Execute())
 }
