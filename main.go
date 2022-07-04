@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/cgalo5758/fior/commands"
+	"github.com/cgalo5758/fior/interfaces/cli"
 )
 
 func main() {
-	commands.Execute()
+	cli.Execute()
 }
