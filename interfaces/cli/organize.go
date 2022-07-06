@@ -1,8 +1,7 @@
 package cli
 
 import (
-	"fmt"
-
+	"github.com/cgalo5758/fior/internal"
 	"github.com/spf13/cobra"
 )
 
@@ -12,7 +11,7 @@ var organizeCmd = &cobra.Command{
 	Long:  `Organize a directory according to a given specification document`,
 	Args:  cobra.ExactArgs(1),
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("not implemented yet")
+		internal.Organize(args[0], args[1])
 	},
 }
 
