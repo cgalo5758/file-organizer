@@ -1,0 +1,4 @@
+# data
+
+The `data` directory contains:
+- directory layout specifications serialized in YAML.
