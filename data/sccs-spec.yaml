@@ -1,0 +1,34 @@
+---
+specification:
+  name: "SCCS File System Specification"
+  description: |
+    Swarthmore College Computer Society Specification for organizing files and
+    directories.
+  diagram: |
+    [OWNER]/
+    ├──[GROUP | USER ...]/
+    │  ├──[UNSTRUCTURED_DATA_TYPE ...]/
+    │  │  ├──[SEMI-STRUCTURED_DATA_TYPE ...]/
+    │  │  │  ├──[STRUCTURED_DATA_TYPE ...]/
+    │  │  │  └── ...
+    │  │  └── ...
+    │  └── ...
+    └── ...
+definitions:
+  - mime-type-directory:
+      multiple: true
+      required:
+  - user-directories:
+      multiple: true
+      required:
+      files:
+        - README
+      subdirectories:
+        - mime-type-directory
+  - group-directories:
+      multiple: true
+      required:
+      files:
+        - README
+      subdirectories:
+        - mime-type-directory
