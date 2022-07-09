@@ -15,20 +15,22 @@ specification:
     │  └── ...
     └── ...
 definitions:
-  - mime-type-directory:
-      multiple: true
-      required:
-  - user-directories:
-      multiple: true
-      required:
-      files:
-        - README
-      subdirectories:
-        - mime-type-directory
-  - group-directories:
-      multiple: true
-      required:
-      files:
-        - README
-      subdirectories:
-        - mime-type-directory
+  directory-types:
+    - mime-type-directory:
+    - user-directory:
+        files:
+          - README
+        subdirectories:
+          - mime-type-directory
+    - group-directory:
+        files:
+          - README
+        subdirectories:
+          - mime-type-directory
+    - git-branch-directory:
+    - custom-directory
+directory:
+  directory-types:
+    - mime-type-directory:
+        required: false
+        multiple: true
