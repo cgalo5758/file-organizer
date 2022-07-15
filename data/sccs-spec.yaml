@@ -17,21 +17,39 @@ specification:
 definitions:
   directory-types:
     - 
+      name:
+      subdirectories:
+        allowed-types:
+        required:
+      files:
+        allowed:
+        required:
+    - 
       name: mime-type
       subdirectories:
+        allowed-types:
+        required:
       files:
+        allowed:
+        required:
     -
       name: user
       subdirectories:
-        - mime-type
+        allowed-types:
+          - mime-type
+        required:
       files:
-        - README
+        allowed:
+          - README
     - 
-      name: group
+      name: user
       subdirectories:
-        - mime-type
+        allowed-types:
+          - mime-type
+        required:
       files:
-        - README
+        allowed:
+          - README
     - 
       name: custom
       subdirectories:
@@ -47,10 +65,11 @@ definitions:
       name: README
 directory:
   subdirectories:
-    - 
-      type: user
-      required: false
-      multiple: true
+    allowed:
+      - 
+        type: user
+        required: false
+        multiple: true
   files:
     - 
       type: README
