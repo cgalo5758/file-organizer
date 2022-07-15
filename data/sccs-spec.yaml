@@ -5,7 +5,7 @@ specification:
     Swarthmore College Computer Society Specification for organizing files and
     directories.
   diagram: |
-    [OWNER]/
+    [BASE]/
     ├──[GROUP | USER ...]/
     │  ├──[UNSTRUCTURED_DATA_TYPE ...]/
     │  │  ├──[SEMI-STRUCTURED_DATA_TYPE ...]/
@@ -16,21 +16,43 @@ specification:
     └── ...
 definitions:
   directory-types:
-    - mime-type-directory:
-    - user-directory:
-        files:
-          - README
-        subdirectories:
-          - mime-type-directory
-    - group-directory:
-        files:
-          - README
-        subdirectories:
-          - mime-type-directory
-    - git-branch-directory:
-    - custom-directory
+    - 
+      name: mime-type
+      subdirectories:
+      files:
+    -
+      name: user
+      subdirectories:
+        - mime-type
+      files:
+        - README
+    - 
+      name: group
+      subdirectories:
+        - mime-type
+      files:
+        - README
+    - 
+      name: custom
+      subdirectories:
+        - any
+      files:
+        - any
+  file-types:
+    -
+      name: any
+    - 
+      name: mime-type
+    - 
+      name: README
 directory:
-  directory-types:
-    - mime-type-directory:
-        required: false
-        multiple: true
+  subdirectories:
+    - 
+      type: user
+      required: false
+      multiple: true
+  files:
+    - 
+      type: README
+      required: true
+      multiple: false
