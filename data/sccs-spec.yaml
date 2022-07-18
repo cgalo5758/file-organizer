@@ -19,13 +19,9 @@ definitions:
     - 
       name:
       subdirectories:
-        allowed-types:
-        required:
       files:
-        allowed:
-        required:
     - 
-      name: mime-type
+      name: mime
       subdirectories:
         allowed-types:
         required:
@@ -42,9 +38,9 @@ definitions:
         allowed:
           - README
     - 
-      name: user
+      name: group
       subdirectories:
-        allowed-types:
+        allowed:
           - mime-type
         required:
       files:
