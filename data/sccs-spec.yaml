@@ -6,68 +6,43 @@ specification:
     directories.
   diagram: |
     [BASE]/
-    ├──[GROUP | USER ...]/
+    ├──[GROUP ...]/
     │  ├──[UNSTRUCTURED_DATA_TYPE ...]/
-    │  │  ├──[SEMI-STRUCTURED_DATA_TYPE ...]/
-    │  │  │  ├──[STRUCTURED_DATA_TYPE ...]/
-    │  │  │  └── ...
+    │  │  └── ...
+    │  └── ...
+    ├──[GROUP ...]/
+    │  ├──[UNSTRUCTURED_DATA_TYPE ...]/
     │  │  └── ...
     │  └── ...
     └── ...
+
+#
+# v1
+#
 definitions:
-  directory-types:
-    - 
-      name:
-      subdirectories:
-      files:
-    - 
-      name: mime
-      subdirectories:
-        allowed-types:
-        required:
-      files:
-        allowed:
-        required:
-    -
-      name: user
-      subdirectories:
-        allowed-types:
-          - mime-type
-        required:
-      files:
-        allowed:
-          - README
-    - 
-      name: group
-      subdirectories:
-        allowed:
-          - mime-type
-        required:
-      files:
-        allowed:
-          - README
-    - 
-      name: custom
-      subdirectories:
-        - any
-      files:
-        - any
-  file-types:
-    -
-      name: any
-    - 
-      name: mime-type
-    - 
-      name: README
-directory:
-  subdirectories:
-    allowed:
-      - 
-        type: user
-        required: false
-        multiple: true
-  files:
-    - 
-      type: README
-      required: true
-      multiple: false
+  item: 
+    name:
+    type:
+  item-types:
+    - directory
+    - file
+    - link
+  allowed-item-options:
+    multiple:
+
+directory-types:
+  -
+    name: $BASE
+    multiple: false
+  -
+    name: $GROUP
+    multiple: true
+  -
+    name: $USER
+    multiple: true
+  -
+    name: $MIME
+    multiple: true
+  -
+    name: $CUSTOM
+    multiple: true
