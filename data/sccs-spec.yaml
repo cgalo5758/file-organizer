@@ -5,44 +5,71 @@ specification:
     Swarthmore College Computer Society Specification for organizing files and
     directories.
   diagram: |
-    [BASE]/
-    ├──[GROUP ...]/
-    │  ├──[UNSTRUCTURED_DATA_TYPE ...]/
+    [$BASE]/
+    ├──[$GROUP ...]/
+    │  ├──[$MIME ...]/
+    │  │  ├──[$MIME ...]
+    │  │  │  └── ...
     │  │  └── ...
+    │  ├──[$CUSTOM ...]/
+    │  │  └── ?
     │  └── ...
-    ├──[GROUP ...]/
-    │  ├──[UNSTRUCTURED_DATA_TYPE ...]/
+    ├──[$GROUP ...]/
+    │  ├──[$MIME ...]/
+    │  │  ├──[$MIME ...]
+    │  │  │  └── ...
     │  │  └── ...
+    │  ├──[$CUSTOM ...]/
+    │  │  └── ?
     │  └── ...
     └── ...
 
-#
-# v1
-#
-definitions:
-  item: 
-    name:
-    type:
-  item-types:
-    - directory
-    - file
-    - link
-  allowed-item-options:
-    multiple:
-
-directory-types:
+directory-classes:
   -
-    name: $BASE
+    name: base
+    member-names: $BASE
     multiple: false
+    allowed-items:
+      -
+        item-type: directory
+        class: group
+      -
+        item-type: directory
+        class: user
   -
-    name: $GROUP
+    name: group
+    member-names: $GROUP
     multiple: true
+    allowed-items:
+      -
+        item-type: directory
+        class: mime
+      -
+        item-type: directory
+        class: custom
   -
-    name: $USER
+    name: user
+    member-names: $USER
     multiple: true
+    allowed-items:
+      -
+        item-type: directory
+        class: mime
+      -
+        item-type: directory
+        class: custom
   -
-    name: $MIME
+    name: mime
+    member-names: $MIME
     multiple: true
+    allowed-items:
+      -
+        item-type: file
+        class: mime.$MIME
   -
-    name: $CUSTOM
+    name: custom
+    member-names: $CUSTOM
     multiple: true
+    allowed-items:
+      - item-type: any
+      - class: any
